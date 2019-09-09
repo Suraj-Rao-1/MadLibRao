@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(MadLibActivity.BIG_PLACE, bigPlace1);
 
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
 
         }catch(Exception e){
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         String bigPlace1 = bigPlace.getText().toString();
 
         String strToDisplay = "Modern society has " + pastTenseVerb + " in every way possible. ";
-        strToDisplay += "A single " + organism + " can access the weather " + number + "miles away. ";
+        strToDisplay += "A single " + organism + " can access the weather " + number + " miles away. ";
         strToDisplay += "The epitome of this success is the " + adjective + " country of " + country + " . ";
         strToDisplay += "This species is the best to ever have existed in the history of the " + bigPlace + " .";
 
@@ -86,6 +88,22 @@ public class MainActivity extends AppCompatActivity {
 
         Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
         startActivity(chosenIntent);
+    }
+
+    public void clear(View v){
+        EditText pastTenseVerb = (EditText) findViewById(R.id.pastTenseVerb);
+        EditText organism = (EditText) findViewById(R.id.organism);
+        EditText number = (EditText) findViewById(R.id.number);
+        EditText adjective = (EditText) findViewById(R.id.adjective);
+        EditText country = (EditText) findViewById(R.id.country);
+        EditText bigPlace = (EditText) findViewById(R.id.bigPlace);
+
+        pastTenseVerb.setText("");
+        organism.setText("");
+        number.setText("");
+        adjective.setText("");
+        country.setText("");
+        bigPlace.setText("");
     }
 
 }

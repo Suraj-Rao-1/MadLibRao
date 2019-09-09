@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Mad Lib</string>
     <string name = "actionBarName">Suraj\'s Cool MadLib App</string>
-    <string name="title">Mad Lib App</string>
+    <string name="title">Mad Lib Time!</string>
     <string name="buttonTitle">Create</string>
     <string name = "secondButton">Share Madlib</string>
-    <string name="first">Past Tense Verb</string>
-    <string name="second">Organism</string>
+    <string name = "thirdButton">Clear</string>
+    <string name = "goBack">Go Back</string>
+    <string name="first">Action Verb</string>
+    <string name = "firstHint">Past Tense</string>
+    <string name = "secondHint">Singular</string>
+    <string name = "sixthHint">One Word</string>
+    <string name="second">Animal</string>
     <string name="third">Number</string>
     <string name="fourth">Adjective</string>
     <string name="fifth">Country</string>
