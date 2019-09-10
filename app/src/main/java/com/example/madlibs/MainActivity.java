@@ -61,33 +61,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareInfo(View v){
-        EditText pastTenseVerb = (EditText) findViewById(R.id.pastTenseVerb);
-        EditText organism = (EditText) findViewById(R.id.organism);
-        EditText number = (EditText) findViewById(R.id.number);
-        EditText adjective = (EditText) findViewById(R.id.adjective);
-        EditText country = (EditText) findViewById(R.id.country);
-        EditText bigPlace = (EditText) findViewById(R.id.bigPlace);
+        try {
+            EditText pastTenseVerb = (EditText) findViewById(R.id.pastTenseVerb);
+            EditText organism = (EditText) findViewById(R.id.organism);
+            EditText number = (EditText) findViewById(R.id.number);
+            EditText adjective = (EditText) findViewById(R.id.adjective);
+            EditText country = (EditText) findViewById(R.id.country);
+            EditText bigPlace = (EditText) findViewById(R.id.bigPlace);
 
-        String pastTenseverb1 = pastTenseVerb.getText().toString();
-        String organism1 = organism.getText().toString();
-        String number1 = number.getText().toString();
-        String adjective1 = adjective.getText().toString();
-        String country1 = country.getText().toString();
-        String bigPlace1 = bigPlace.getText().toString();
+            String pastTenseverb1 = pastTenseVerb.getText().toString();
+            String organism1 = organism.getText().toString();
+            String number1 = number.getText().toString();
+            String adjective1 = adjective.getText().toString();
+            String country1 = country.getText().toString();
+            String bigPlace1 = bigPlace.getText().toString();
 
-        String strToDisplay = "Modern society has " + pastTenseVerb + " in every way possible. ";
-        strToDisplay += "A single " + organism + " can access the weather " + number + " miles away. ";
-        strToDisplay += "The epitome of this success is the " + adjective + " country of " + country + " . ";
-        strToDisplay += "This species is the best to ever have existed in the history of the " + bigPlace + " .";
+            if (pastTenseverb1.isEmpty() || organism1.isEmpty() || number1.isEmpty() || adjective1.isEmpty() || country1.isEmpty() || bigPlace1.isEmpty()) {
+                TextView textView = (TextView) findViewById(R.id.error);
+                textView.setText("Fill in ALL the Blanks!");
+            } else {
+                String strToDisplay = "Modern society has " + pastTenseVerb + " in every way possible. ";
+                strToDisplay += "A single " + organism + " can access the weather " + number + " miles away. ";
+                strToDisplay += "The epitome of this success is the " + adjective + " country of " + country + " . ";
+                strToDisplay += "This species is the best to ever have existed in the history of the " + bigPlace + " .";
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, strToDisplay);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, strToDisplay);
 
-        String chooserTitle = getString(R.string.app_name);
+                String chooserTitle = getString(R.string.app_name);
 
-        Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
-        startActivity(chosenIntent);
+                Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
+                startActivity(chosenIntent);
+            }
+        }catch (Exception e){
+            TextView textView = (TextView) findViewById(R.id.error);
+            textView.setText("Please Enter Valid Input!");
+        }
     }
 
     public void clear(View v){

@@ -8,6 +8,8 @@
     <string name = "goBack">Go Back</string>
     <string name="first">Action Verb</string>
     <string name = "firstHint">Past Tense</string>
+    <string name = "fourthHint">Ex: Hot</string>
+    <string name = "fifthHint">Ex: America</string>
     <string name = "secondHint">Singular</string>
     <string name = "sixthHint">One Word</string>
     <string name="second">Animal</string>
